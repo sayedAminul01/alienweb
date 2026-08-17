@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unix Timestamp Converter — Free Online Tool | AlienWeb</title>
+<meta name="description" content="Free online Unix timestamp converter. Convert Unix time to a human-readable date, or a date to a Unix timestamp, with a live current-timestamp clock.">
+<link rel="canonical" href="https://alienweb.in/tools/timestamp-converter.html">
+<meta name="theme-color" content="#1F8181">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unix Timestamp Converter — AlienWeb">
+<meta property="og:description" content="Convert between Unix timestamps and human-readable dates instantly, with a live current-timestamp clock. Free and private.">
+<meta property="og:url" content="https://alienweb.in/tools/timestamp-converter.html">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Unix Timestamp Converter","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://alienweb.in/tools/timestamp-converter.html"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is a Unix timestamp?","acceptedAnswer":{"@type":"Answer","text":"A Unix timestamp is the number of seconds (sometimes milliseconds) that have elapsed since midnight UTC on January 1, 1970 — the Unix epoch. It's a compact, timezone-independent way to store a point in time."}},
+{"@type":"Question","name":"How do I know if my timestamp is in seconds or milliseconds?","acceptedAnswer":{"@type":"Answer","text":"Seconds-based timestamps for recent dates are 10 digits long; millisecond timestamps are 13 digits. Use the unit selector to switch between them before converting."}},
+{"@type":"Question","name":"Does this tool account for my timezone?","acceptedAnswer":{"@type":"Answer","text":"Yes. Results show both the UTC time and your browser's local time, and the Date-to-Timestamp converter reads the date and time you enter as your local timezone."}}
+]}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3056427584192481" crossorigin="anonymous"></script>
+<style>
+  .ts-error{ display:none; margin-top:10px; padding:10px 14px; border-radius:var(--radius-sm); background:var(--bg-sunken); border:1px solid var(--danger); color:var(--danger); font-size:.85rem; }
+  .ts-error.show{ display:block; }
+  .ts-subpanel h3{ margin-bottom:14px; }
+  .live-clock{ display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; }
+  .live-clock .big{ font-variant-numeric:tabular-nums; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="/" class="logo"><span class="mark">A</span> AlienWeb</a>
+    <nav class="main-nav" data-main-nav>
+      <a href="/#text-tools">Text Tools</a>
+      <a href="/#developer-tools">Developer Tools</a>
+      <a href="/#calculators">Calculators</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <form class="header-search" data-header-search data-home="/" role="search">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="search" name="q" placeholder="Search 20+ free tools…" aria-label="Search tools">
+    </form>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/#developer-tools">Developer Tools</a> / Unix Timestamp Converter</p>
+    <div class="tool-header">
+      <span class="cat-tag">Developer Tools</span>
+      <h1>Unix Timestamp Converter</h1>
+      <p class="lede">Convert a Unix timestamp to a readable date, or a date to a Unix timestamp — plus a live clock showing the current timestamp.</p>
+    </div>
+
+    <div class="tool-panel">
+      <div class="result-display live-clock">
+        <div>
+          <div class="big" id="current-ts">0</div>
+          <div class="label">Current Unix Timestamp (seconds) — live</div>
+        </div>
+        <div>
+          <button class="btn btn-secondary btn-sm" data-copy-target="#current-ts" type="button">Copy</button>
+          <span class="copy-feedback">Copied!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-panel">
+      <div class="tool-grid-2">
+        <div class="ts-subpanel">
+          <h3>Timestamp → Date</h3>
+          <div class="field">
+            <label for="ts-input">Unix timestamp</label>
+            <input type="number" id="ts-input" placeholder="e.g. 1755393600" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label for="ts-unit">Unit</label>
+            <select id="ts-unit">
+              <option value="seconds" selected>Seconds</option>
+              <option value="milliseconds">Milliseconds</option>
+            </select>
+          </div>
+          <div class="tool-toolbar">
+            <button class="btn btn-primary" id="ts-convert" type="button">Convert</button>
+          </div>
+          <div id="ts-error" class="ts-error" role="alert"></div>
+          <div class="output-box" id="ts-result" style="margin-top:14px;">Enter a timestamp and click Convert.</div>
+        </div>
+
+        <div class="ts-subpanel">
+          <h3>Date → Timestamp</h3>
+          <div class="field">
+            <label for="date-input">Date &amp; time (your local timezone)</label>
+            <input type="datetime-local" id="date-input">
+          </div>
+          <div class="tool-toolbar">
+            <button class="btn btn-primary" id="date-convert" type="button">Convert</button>
+          </div>
+          <div id="date-error" class="ts-error" role="alert"></div>
+          <div class="output-box" id="date-result" style="margin-top:14px;">Pick a date and click Convert.</div>
+          <div class="tool-toolbar">
+            <button class="btn btn-secondary btn-sm" data-copy-target="#date-result" type="button">Copy result</button>
+            <span class="copy-feedback">Copied!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-inline">
+      <div class="ad-label">Advertisement</div>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3056427584192481" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="tool-info">
+      <h2>How to use the timestamp converter</h2>
+      <ol>
+        <li>To convert a timestamp to a date: enter the number, choose whether it's in seconds or milliseconds, and click Convert.</li>
+        <li>To convert a date to a timestamp: pick a date and time in the right-hand panel and click Convert — results show both seconds and milliseconds.</li>
+        <li>The live clock at the top always shows the current Unix timestamp in seconds, ticking up every second.</li>
+        <li>Use the Copy buttons to grab any result for use in code, logs, or API calls.</li>
+      </ol>
+      <h2>Why use a Unix timestamp converter?</h2>
+      <p>Unix time — the number of seconds since January 1, 1970 UTC — shows up everywhere in logs, databases, JWTs, and APIs, but it's not something humans can read at a glance. This tool converts instantly in both directions and shows results in UTC alongside your browser's local time, so you don't have to do timezone math by hand. It also handles the common seconds-vs-milliseconds mix-up that trips up a lot of debugging sessions: pick the right unit and the tool does the rest. Everything is computed client-side with JavaScript's native Date object, so there's no server delay and no data leaves your browser.</p>
+      <div class="faq">
+        <details><summary>What is a Unix timestamp?</summary><p>A Unix timestamp is the number of seconds (sometimes milliseconds) that have elapsed since midnight UTC on January 1, 1970 — the Unix epoch. It's a compact, timezone-independent way to store a point in time.</p></details>
+        <details><summary>How do I know if my timestamp is in seconds or milliseconds?</summary><p>Seconds-based timestamps for recent dates are 10 digits long; millisecond timestamps are 13 digits. Use the unit selector to switch between them before converting.</p></details>
+        <details><summary>Does this tool account for my timezone?</summary><p>Yes. Results show both the UTC time and your browser's local time, and the Date-to-Timestamp converter reads the date and time you enter as your local timezone.</p></details>
+      </div>
+    </section>
+
+    <section class="related-tools">
+      <h2>Related tools</h2>
+      <div class="tools-grid">
+        <a class="tool-card" href="/tools/age-calculator.html"><span class="emoji">🎂</span><h3>Age Calculator</h3><p>Calculate exact age from a date of birth.</p></a>
+        <a class="tool-card" href="/tools/json-formatter.html"><span class="emoji">🧩</span><h3>JSON Formatter &amp; Validator</h3><p>Format, minify, and validate JSON.</p></a>
+        <a class="tool-card" href="/tools/unit-converter.html"><span class="emoji">📏</span><h3>Unit Converter</h3><p>Convert length, weight, temperature, and more.</p></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="mark">A</span> AlienWeb</a>
+        <p>A free toolbox of fast, private, browser-based utilities for text, developers, and everyday calculations.</p>
+      </div>
+      <div class="footer-col"><h4>Text Tools</h4><ul>
+        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+        <li><a href="/tools/text-diff-checker.html">Text Diff Checker</a></li>
+        <li><a href="/tools/markdown-previewer.html">Markdown Previewer</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Developer Tools</h4><ul>
+        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+        <li><a href="/tools/base64-converter.html">Base64 Converter</a></li>
+        <li><a href="/tools/password-generator.html">Password Generator</a></li>
+        <li><a href="/tools/qr-code-generator.html">QR Code Generator</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Calculators</h4><ul>
+        <li><a href="/tools/bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="/tools/age-calculator.html">Age Calculator</a></li>
+        <li><a href="/tools/loan-emi-calculator.html">Loan EMI Calculator</a></li>
+        <li><a href="/tools/unit-converter.html">Unit Converter</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms of Use</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> AlienWeb.in — All rights reserved.</span>
+      <span>Built for people who just need the tool to work.</span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/assets/js/main.js"></script>
+<script>
+(function(){
+  var currentTs = document.getElementById("current-ts");
+  function tick(){
+    currentTs.textContent = Math.floor(Date.now() / 1000);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  var tsInput = document.getElementById("ts-input");
+  var tsUnit = document.getElementById("ts-unit");
+  var tsResult = document.getElementById("ts-result");
+  var tsError = document.getElementById("ts-error");
+
+  function hideError(el){ el.classList.remove("show"); el.textContent = ""; }
+  function showError(el, msg){ el.textContent = msg; el.classList.add("show"); }
+
+  document.getElementById("ts-convert").addEventListener("click", function(){
+    hideError(tsError);
+    var raw = tsInput.value.trim();
+    if (raw === "") { showError(tsError, "Enter a Unix timestamp first."); return; }
+    var num = Number(raw);
+    if (!isFinite(num)) { showError(tsError, "That's not a valid number."); return; }
+    var ms = tsUnit.value === "seconds" ? num * 1000 : num;
+    var date = new Date(ms);
+    if (isNaN(date.getTime())) { showError(tsError, "That timestamp is out of range."); return; }
+    tsResult.textContent = "UTC:   " + date.toUTCString() + "\nLocal: " + date.toLocaleString();
+  });
+
+  var dateInput = document.getElementById("date-input");
+  var dateResult = document.getElementById("date-result");
+  var dateError = document.getElementById("date-error");
+
+  document.getElementById("date-convert").addEventListener("click", function(){
+    hideError(dateError);
+    if (!dateInput.value) { showError(dateError, "Pick a date and time first."); return; }
+    var date = new Date(dateInput.value);
+    if (isNaN(date.getTime())) { showError(dateError, "That date couldn't be parsed."); return; }
+    var seconds = Math.floor(date.getTime() / 1000);
+    dateResult.textContent = "Seconds:      " + seconds + "\nMilliseconds: " + date.getTime();
+  });
+})();
+</script>
+</body>
+</html>

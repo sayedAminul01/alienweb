@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit Converter — Length, Weight & Temperature | AlienWeb</title>
+<meta name="description" content="Free online unit converter for length, weight, and temperature. Convert meters, feet, kilograms, pounds, Celsius, Fahrenheit and more, instantly and accurately.">
+<link rel="canonical" href="https://alienweb.in/tools/unit-converter.html">
+<meta name="theme-color" content="#1F8181">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unit Converter — AlienWeb">
+<meta property="og:description" content="Convert length, weight, and temperature units instantly. Free, private, and works offline.">
+<meta property="og:url" content="https://alienweb.in/tools/unit-converter.html">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Unit Converter","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://alienweb.in/tools/unit-converter.html"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Which units does this converter support?","acceptedAnswer":{"@type":"Answer","text":"Length (millimeters, centimeters, meters, kilometers, inches, feet, yards, miles), weight (milligrams, grams, kilograms, ounces, pounds, stone), and temperature (Celsius, Fahrenheit, Kelvin)."}},
+{"@type":"Question","name":"How accurate are the conversions?","acceptedAnswer":{"@type":"Answer","text":"Length and weight use standard internationally recognized conversion factors, and results are shown rounded to six decimal places. Temperature uses the exact Celsius, Fahrenheit, and Kelvin formulas rather than a simple multiplier."}},
+{"@type":"Question","name":"Why is temperature converted differently from length or weight?","acceptedAnswer":{"@type":"Answer","text":"Celsius, Fahrenheit, and Kelvin don't share a common zero point, so temperature can't be converted with a simple multiplication like length or weight. This tool uses the correct offset formulas for each pair of units."}}
+]}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3056427584192481" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="/" class="logo"><span class="mark">A</span> AlienWeb</a>
+    <nav class="main-nav" data-main-nav>
+      <a href="/#text-tools">Text Tools</a>
+      <a href="/#developer-tools">Developer Tools</a>
+      <a href="/#calculators">Calculators</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <form class="header-search" data-header-search data-home="/" role="search">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="search" name="q" placeholder="Search 20+ free tools…" aria-label="Search tools">
+    </form>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/#calculators">Calculators</a> / Unit Converter</p>
+    <div class="tool-header">
+      <span class="cat-tag">Calculator</span>
+      <h1>Unit Converter</h1>
+      <p class="lede">Convert between length, weight, and temperature units instantly. Pick a category, choose your units, and the result updates as you type.</p>
+    </div>
+
+    <div class="tool-panel">
+      <div class="field">
+        <label for="uc-category">Category</label>
+        <select id="uc-category">
+          <option value="length">Length</option>
+          <option value="weight">Weight</option>
+          <option value="temperature">Temperature</option>
+        </select>
+      </div>
+      <div class="tool-grid-2">
+        <div class="field">
+          <label for="uc-value">Value</label>
+          <input type="number" id="uc-value" value="1">
+        </div>
+        <div class="field">
+          <label for="uc-from">From</label>
+          <select id="uc-from"></select>
+        </div>
+      </div>
+      <div class="tool-toolbar" style="justify-content:center">
+        <button class="icon-btn" id="uc-swap" type="button" aria-label="Swap from and to units">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 16V4M7 4L3 8M7 4l4 4M17 8v12M17 20l4-4M17 20l-4-4"/></svg>
+        </button>
+      </div>
+      <div class="field">
+        <label for="uc-to">To</label>
+        <select id="uc-to"></select>
+      </div>
+      <div class="result-display">
+        <div class="big" id="uc-result">0</div>
+        <div class="label" id="uc-result-label">—</div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-inline">
+      <div class="ad-label">Advertisement</div>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3056427584192481" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="tool-info">
+      <h2>How to use the unit converter</h2>
+      <ol>
+        <li>Choose a category: Length, Weight, or Temperature.</li>
+        <li>Enter the value you want to convert, and pick the "From" unit.</li>
+        <li>Pick the "To" unit — the converted result appears instantly.</li>
+        <li>Use the swap button to flip the From and To units in one click.</li>
+      </ol>
+      <h2>Why use a unit converter?</h2>
+      <p>Recipes in ounces, a car's fuel economy in miles, a weather forecast in Fahrenheit, a product spec in centimeters — everyday life mixes measurement systems constantly, and converting by hand is easy to get wrong. This tool covers the most commonly needed length, weight, and temperature conversions using standard, internationally recognized conversion factors and exact temperature formulas, with results updating live as you type. It's built for everyday, cooking, travel, fitness, and general reference use — for engineering, medical, or scientific work requiring certified precision, please verify against an authoritative source.</p>
+      <div class="faq">
+        <details><summary>Which units does this converter support?</summary><p>Length (millimeters, centimeters, meters, kilometers, inches, feet, yards, miles), weight (milligrams, grams, kilograms, ounces, pounds, stone), and temperature (Celsius, Fahrenheit, Kelvin).</p></details>
+        <details><summary>How accurate are the conversions?</summary><p>Length and weight use standard internationally recognized conversion factors, and results are shown rounded to six decimal places. Temperature uses the exact Celsius, Fahrenheit, and Kelvin formulas rather than a simple multiplier.</p></details>
+        <details><summary>Why is temperature converted differently from length or weight?</summary><p>Celsius, Fahrenheit, and Kelvin don't share a common zero point, so temperature can't be converted with a simple multiplication like length or weight. This tool uses the correct offset formulas for each pair of units.</p></details>
+      </div>
+    </section>
+
+    <section class="related-tools">
+      <h2>Related tools</h2>
+      <div class="tools-grid">
+        <a class="tool-card" href="/tools/percentage-calculator.html"><span class="emoji">➗</span><h3>Percentage Calculator</h3><p>Find percentages, ratios, and percentage change.</p></a>
+        <a class="tool-card" href="/tools/bmi-calculator.html"><span class="emoji">⚖️</span><h3>BMI Calculator</h3><p>Check your body mass index from height and weight.</p></a>
+        <a class="tool-card" href="/tools/random-number-generator.html"><span class="emoji">🎲</span><h3>Random Number Generator</h3><p>Generate random numbers within any range.</p></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="mark">A</span> AlienWeb</a>
+        <p>A free toolbox of fast, private, browser-based utilities for text, developers, and everyday calculations.</p>
+      </div>
+      <div class="footer-col"><h4>Text Tools</h4><ul>
+        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+        <li><a href="/tools/text-diff-checker.html">Text Diff Checker</a></li>
+        <li><a href="/tools/markdown-previewer.html">Markdown Previewer</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Developer Tools</h4><ul>
+        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+        <li><a href="/tools/base64-converter.html">Base64 Converter</a></li>
+        <li><a href="/tools/password-generator.html">Password Generator</a></li>
+        <li><a href="/tools/qr-code-generator.html">QR Code Generator</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Calculators</h4><ul>
+        <li><a href="/tools/bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="/tools/age-calculator.html">Age Calculator</a></li>
+        <li><a href="/tools/loan-emi-calculator.html">Loan EMI Calculator</a></li>
+        <li><a href="/tools/unit-converter.html">Unit Converter</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms of Use</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> AlienWeb.in — All rights reserved.</span>
+      <span>Built for people who just need the tool to work.</span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/assets/js/main.js"></script>
+<script>
+(function(){
+  var CATEGORIES = {
+    length: {
+      units: [
+        ["millimeters", "Millimeters (mm)", 0.001],
+        ["centimeters", "Centimeters (cm)", 0.01],
+        ["meters", "Meters (m)", 1],
+        ["kilometers", "Kilometers (km)", 1000],
+        ["inches", "Inches (in)", 0.0254],
+        ["feet", "Feet (ft)", 0.3048],
+        ["yards", "Yards (yd)", 0.9144],
+        ["miles", "Miles (mi)", 1609.344]
+      ],
+      defaultFrom: "meters",
+      defaultTo: "feet"
+    },
+    weight: {
+      units: [
+        ["milligrams", "Milligrams (mg)", 0.001],
+        ["grams", "Grams (g)", 1],
+        ["kilograms", "Kilograms (kg)", 1000],
+        ["ounces", "Ounces (oz)", 28.349523125],
+        ["pounds", "Pounds (lb)", 453.59237],
+        ["stone", "Stone (st)", 6350.29318]
+      ],
+      defaultFrom: "kilograms",
+      defaultTo: "pounds"
+    },
+    temperature: {
+      special: true,
+      units: [
+        ["celsius", "Celsius (°C)"],
+        ["fahrenheit", "Fahrenheit (°F)"],
+        ["kelvin", "Kelvin (K)"]
+      ],
+      defaultFrom: "celsius",
+      defaultTo: "fahrenheit"
+    }
+  };
+
+  var categorySelect = document.getElementById("uc-category");
+  var valueInput = document.getElementById("uc-value");
+  var fromSelect = document.getElementById("uc-from");
+  var toSelect = document.getElementById("uc-to");
+  var swapBtn = document.getElementById("uc-swap");
+  var result = document.getElementById("uc-result");
+  var resultLabel = document.getElementById("uc-result-label");
+
+  function fmt(n){
+    if (!isFinite(n)) return "—";
+    var r = Math.round(n * 1e6) / 1e6;
+    return r.toString();
+  }
+
+  function unitLabel(category, key){
+    var units = CATEGORIES[category].units;
+    for (var i = 0; i < units.length; i++) {
+      if (units[i][0] === key) return units[i][1];
+    }
+    return key;
+  }
+
+  function populateUnits(category){
+    var def = CATEGORIES[category];
+    fromSelect.innerHTML = "";
+    toSelect.innerHTML = "";
+    def.units.forEach(function(u){
+      var opt1 = document.createElement("option");
+      opt1.value = u[0]; opt1.textContent = u[1];
+      fromSelect.appendChild(opt1);
+      var opt2 = document.createElement("option");
+      opt2.value = u[0]; opt2.textContent = u[1];
+      toSelect.appendChild(opt2);
+    });
+    fromSelect.value = def.defaultFrom;
+    toSelect.value = def.defaultTo;
+  }
+
+  function convertTemperature(value, from, to){
+    var celsius;
+    if (from === "celsius") celsius = value;
+    else if (from === "fahrenheit") celsius = (value - 32) * 5 / 9;
+    else celsius = value - 273.15;
+
+    if (to === "celsius") return celsius;
+    if (to === "fahrenheit") return celsius * 9 / 5 + 32;
+    return celsius + 273.15;
+  }
+
+  function recalc(){
+    var category = categorySelect.value;
+    var value = parseFloat(valueInput.value);
+    var from = fromSelect.value;
+    var to = toSelect.value;
+
+    if (isNaN(value)) { result.textContent = "—"; resultLabel.textContent = "Enter a value"; return; }
+
+    var out;
+    if (CATEGORIES[category].special) {
+      out = convertTemperature(value, from, to);
+    } else {
+      var units = CATEGORIES[category].units;
+      var factorFrom, factorTo;
+      units.forEach(function(u){
+        if (u[0] === from) factorFrom = u[2];
+        if (u[0] === to) factorTo = u[2];
+      });
+      var base = value * factorFrom;
+      out = base / factorTo;
+    }
+
+    result.textContent = fmt(out);
+    resultLabel.textContent = value + " " + unitLabel(category, from) + " = " + fmt(out) + " " + unitLabel(category, to);
+  }
+
+  categorySelect.addEventListener("change", function(){
+    populateUnits(categorySelect.value);
+    recalc();
+  });
+  valueInput.addEventListener("input", recalc);
+  fromSelect.addEventListener("change", recalc);
+  toSelect.addEventListener("change", recalc);
+  swapBtn.addEventListener("click", function(){
+    var f = fromSelect.value, t = toSelect.value;
+    fromSelect.value = t;
+    toSelect.value = f;
+    recalc();
+  });
+
+  populateUnits(categorySelect.value);
+  recalc();
+})();
+</script>
+</body>
+</html>
