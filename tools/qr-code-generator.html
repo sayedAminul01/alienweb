@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR Code Generator — Free Online Tool | AlienWeb</title>
+<meta name="description" content="Free online QR code generator. Turn any text, URL, or number into a downloadable QR code instantly, with adjustable error correction. Private, fast, no sign-up.">
+<link rel="canonical" href="https://alienweb.in/tools/qr-code-generator.html">
+<meta name="theme-color" content="#1F8181">
+<meta property="og:type" content="website">
+<meta property="og:title" content="QR Code Generator — AlienWeb">
+<meta property="og:description" content="Turn any text, URL, or number into a scannable QR code and download it as a PNG. Free, instant, and private.">
+<meta property="og:url" content="https://alienweb.in/tools/qr-code-generator.html">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"QR Code Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://alienweb.in/tools/qr-code-generator.html"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What can I encode in a QR code?","acceptedAnswer":{"@type":"Answer","text":"Anything text-based: a website URL, plain text, a phone number, an email address, or a number. The QR code automatically sizes itself to fit however much you type."}},
+{"@type":"Question","name":"Which error correction level should I choose?","acceptedAnswer":{"@type":"Answer","text":"Low is fine for clean digital use. Medium is a good default. Choose Quartile or High if the code will be printed small, placed on a curved surface, or might get partially scratched or covered, since higher levels can recover more missing data."}},
+{"@type":"Question","name":"Is the QR code generated locally or sent to a server?","acceptedAnswer":{"@type":"Answer","text":"Entirely locally. The QR code is drawn in your browser using JavaScript, and the PNG download is created on your own device — nothing you type is ever uploaded anywhere."}}
+]}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3056427584192481" crossorigin="anonymous"></script>
+<style>
+  .qr-output-wrap{ display:flex; align-items:center; justify-content:center; padding:24px; }
+  .qr-output-box{ display:inline-block; padding:18px; background:#ffffff; border-radius:var(--radius-sm); box-shadow:var(--shadow-sm); }
+  .qr-output-box svg{ width:220px; height:220px; }
+  .qr-empty{ color:var(--text-faint); margin:0; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="/" class="logo"><span class="mark">A</span> AlienWeb</a>
+    <nav class="main-nav" data-main-nav>
+      <a href="/#text-tools">Text Tools</a>
+      <a href="/#developer-tools">Developer Tools</a>
+      <a href="/#calculators">Calculators</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <form class="header-search" data-header-search data-home="/" role="search">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="search" name="q" placeholder="Search 20+ free tools…" aria-label="Search tools">
+    </form>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/#developer-tools">Developer Tools</a> / QR Code Generator</p>
+    <div class="tool-header">
+      <span class="cat-tag">Developer Tools</span>
+      <h1>QR Code Generator</h1>
+      <p class="lede">Turn any text, URL, or number into a scannable QR code, then download it as a PNG. Everything is generated right in your browser.</p>
+    </div>
+
+    <div class="tool-panel">
+      <div class="field">
+        <label for="qr-text">Text, URL, or number to encode</label>
+        <textarea id="qr-text" rows="3" placeholder="https://example.com or any text…">https://alienweb.in</textarea>
+      </div>
+      <div class="field">
+        <label for="qr-ecl">Error correction level</label>
+        <select id="qr-ecl">
+          <option value="L">Low (L) — ~7% recovery</option>
+          <option value="M" selected>Medium (M) — ~15% recovery</option>
+          <option value="Q">Quartile (Q) — ~25% recovery</option>
+          <option value="H">High (H) — ~30% recovery</option>
+        </select>
+      </div>
+      <div class="tool-toolbar">
+        <button class="btn btn-primary" id="qr-generate" type="button">Generate QR Code</button>
+        <button class="btn btn-secondary" id="qr-download" type="button">Download PNG</button>
+      </div>
+    </div>
+
+    <div class="tool-panel qr-output-wrap">
+      <div class="qr-output-box" id="qr-output"></div>
+    </div>
+
+    <div class="ad-slot ad-inline">
+      <div class="ad-label">Advertisement</div>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3056427584192481" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="tool-info">
+      <h2>How to use the QR code generator</h2>
+      <ol>
+        <li>Type or paste the text, URL, phone number, or number you want to encode.</li>
+        <li>Choose an error correction level — Medium works for most cases; go higher if the code will be printed small.</li>
+        <li>Click "Generate QR Code" to render it instantly.</li>
+        <li>Click "Download PNG" to save a high-resolution image you can print or share.</li>
+      </ol>
+      <h2>Why use a QR code generator?</h2>
+      <p>QR codes bridge print and digital: a business card, flyer, product label, or restaurant menu can link straight to a website, contact card, or Wi-Fi login without anyone typing a URL. This tool builds the code entirely in your browser using open-source QR encoding, so nothing you enter is sent to a server. Higher error correction levels embed more redundancy, so the code still scans even if part of it is scratched, dirty, or covered by a logo — useful for anything that will be printed and handled. The exported PNG is generated at high resolution so it stays crisp even when printed several inches wide.</p>
+      <div class="faq">
+        <details><summary>What can I encode in a QR code?</summary><p>Anything text-based: a website URL, plain text, a phone number, an email address, or a number. The QR code automatically sizes itself to fit however much you type.</p></details>
+        <details><summary>Which error correction level should I choose?</summary><p>Low is fine for clean digital use. Medium is a good default. Choose Quartile or High if the code will be printed small, placed on a curved surface, or might get partially scratched or covered, since higher levels can recover more missing data.</p></details>
+        <details><summary>Is the QR code generated locally or sent to a server?</summary><p>Entirely locally. The QR code is drawn in your browser using JavaScript, and the PNG download is created on your own device — nothing you type is ever uploaded anywhere.</p></details>
+      </div>
+    </section>
+
+    <section class="related-tools">
+      <h2>Related tools</h2>
+      <div class="tools-grid">
+        <a class="tool-card" href="/tools/url-encoder.html"><span class="emoji">🔗</span><h3>URL Encoder / Decoder</h3><p>Encode and decode URLs and query strings.</p></a>
+        <a class="tool-card" href="/tools/base64-converter.html"><span class="emoji">🔡</span><h3>Base64 Encoder &amp; Decoder</h3><p>Convert text and data to and from Base64.</p></a>
+        <a class="tool-card" href="/tools/password-generator.html"><span class="emoji">🔐</span><h3>Password Generator</h3><p>Create strong, random passwords instantly.</p></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="mark">A</span> AlienWeb</a>
+        <p>A free toolbox of fast, private, browser-based utilities for text, developers, and everyday calculations.</p>
+      </div>
+      <div class="footer-col"><h4>Text Tools</h4><ul>
+        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+        <li><a href="/tools/text-diff-checker.html">Text Diff Checker</a></li>
+        <li><a href="/tools/markdown-previewer.html">Markdown Previewer</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Developer Tools</h4><ul>
+        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+        <li><a href="/tools/base64-converter.html">Base64 Converter</a></li>
+        <li><a href="/tools/password-generator.html">Password Generator</a></li>
+        <li><a href="/tools/qr-code-generator.html">QR Code Generator</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Calculators</h4><ul>
+        <li><a href="/tools/bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="/tools/age-calculator.html">Age Calculator</a></li>
+        <li><a href="/tools/loan-emi-calculator.html">Loan EMI Calculator</a></li>
+        <li><a href="/tools/unit-converter.html">Unit Converter</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms of Use</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> AlienWeb.in — All rights reserved.</span>
+      <span>Built for people who just need the tool to work.</span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/assets/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+<script>
+(function(){
+  var textEl = document.getElementById("qr-text");
+  var eclEl = document.getElementById("qr-ecl");
+  var output = document.getElementById("qr-output");
+  var generateBtn = document.getElementById("qr-generate");
+  var downloadBtn = document.getElementById("qr-download");
+
+  function generate(){
+    var text = textEl.value.trim();
+    if (!text) {
+      output.innerHTML = '<p class="qr-empty">Enter some text to generate a QR code.</p>';
+      return;
+    }
+    var ecl = eclEl.value || "M";
+    try {
+      var qr = qrcode(0, ecl);
+      qr.addData(text);
+      qr.make();
+      output.innerHTML = qr.createSvgTag({ cellSize: 5, margin: 4 });
+    } catch (e) {
+      output.innerHTML = '<p class="qr-empty">Could not generate a QR code for this input — try shorter text.</p>';
+    }
+  }
+
+  function downloadPng(){
+    var svg = output.querySelector("svg");
+    if (!svg) return;
+
+    var vb = svg.getAttribute("viewBox");
+    var size = 200;
+    if (vb) {
+      var parts = vb.split(/\s+/);
+      if (parts.length === 4) size = parseFloat(parts[2]) || size;
+    }
+
+    var serializer = new XMLSerializer();
+    var svgStr = serializer.serializeToString(svg);
+    var svgBlob = new Blob([svgStr], { type: "image/svg+xml;charset=utf-8" });
+    var url = URL.createObjectURL(svgBlob);
+
+    var img = new Image();
+    img.onload = function(){
+      var scale = 4;
+      var canvas = document.createElement("canvas");
+      canvas.width = size * scale;
+      canvas.height = size * scale;
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      URL.revokeObjectURL(url);
+
+      canvas.toBlob(function(blob){
+        if (!blob) return;
+        var pngUrl = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = pngUrl;
+        a.download = "qrcode.png";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(function(){ URL.revokeObjectURL(pngUrl); }, 1000);
+      });
+    };
+    img.onerror = function(){ URL.revokeObjectURL(url); };
+    img.src = url;
+  }
+
+  generateBtn.addEventListener("click", generate);
+  downloadBtn.addEventListener("click", downloadPng);
+  generate();
+})();
+</script>
+</body>
+</html>

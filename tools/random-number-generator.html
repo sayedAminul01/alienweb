@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Random Number Generator — Free Online Tool | AlienWeb</title>
+<meta name="description" content="Free online random number generator. Pick a min/max range, generate one or many numbers, and optionally avoid duplicates — powered by a cryptographically secure RNG.">
+<link rel="canonical" href="https://alienweb.in/tools/random-number-generator.html">
+<meta name="theme-color" content="#1F8181">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Random Number Generator — AlienWeb">
+<meta property="og:description" content="Generate one or many random numbers in any range, with an optional no-duplicates mode. Free, instant, and private.">
+<meta property="og:url" content="https://alienweb.in/tools/random-number-generator.html">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Random Number Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://alienweb.in/tools/random-number-generator.html"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is this random number generator truly random?","acceptedAnswer":{"@type":"Answer","text":"Numbers are generated with the Web Crypto API's crypto.getRandomValues, a cryptographically secure random source built into your browser, using rejection sampling so every value in your range is equally likely — unlike naive uses of Math.random, which can be slightly biased."}},
+{"@type":"Question","name":"Can I generate numbers without duplicates?","acceptedAnswer":{"@type":"Answer","text":"Yes. Check \"No duplicate numbers\" and each generated value will be unique. If your requested count is larger than the number of possible values in your range, the tool shows an error instead of guessing."}},
+{"@type":"Question","name":"What's the maximum range or count supported?","acceptedAnswer":{"@type":"Answer","text":"You can generate between 1 and 100 numbers per click, and the minimum and maximum can be any whole numbers, as long as minimum is less than or equal to maximum."}}
+]}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3056427584192481" crossorigin="anonymous"></script>
+<style>
+  .rng-error{ display:none; margin-top:14px; padding:10px 14px; border-radius:var(--radius-sm); background:var(--bg-sunken); border:1px solid var(--danger); color:var(--danger); font-size:.85rem; }
+  .rng-error.show{ display:block; }
+  .rng-checkbox-row{ display:flex; align-items:center; gap:9px; font-size:.92rem; color:var(--text); }
+  .rng-checkbox-row input{ width:17px; height:17px; accent-color:var(--accent); cursor:pointer; }
+  .rng-pills{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+  .rng-pills .stat-pill{ flex:0 0 auto; min-width:64px; }
+  .rng-results{ display:none; margin-top:20px; }
+  .rng-results.show{ display:block; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="/" class="logo"><span class="mark">A</span> AlienWeb</a>
+    <nav class="main-nav" data-main-nav>
+      <a href="/#text-tools">Text Tools</a>
+      <a href="/#developer-tools">Developer Tools</a>
+      <a href="/#calculators">Calculators</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <form class="header-search" data-header-search data-home="/" role="search">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="search" name="q" placeholder="Search 20+ free tools…" aria-label="Search tools">
+    </form>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/#developer-tools">Developer Tools</a> / Random Number Generator</p>
+    <div class="tool-header">
+      <span class="cat-tag">Developer Tools</span>
+      <h1>Random Number Generator</h1>
+      <p class="lede">Set a range, choose how many numbers you need, and generate them instantly using a cryptographically secure random source.</p>
+    </div>
+
+    <div class="tool-panel">
+      <div class="tool-grid-2">
+        <div class="field">
+          <label for="rng-min">Minimum</label>
+          <input type="number" id="rng-min" value="1" step="1">
+        </div>
+        <div class="field">
+          <label for="rng-max">Maximum</label>
+          <input type="number" id="rng-max" value="100" step="1">
+        </div>
+      </div>
+      <div class="field">
+        <label for="rng-count">How many numbers</label>
+        <input type="number" id="rng-count" value="1" min="1" max="100" step="1">
+      </div>
+      <div class="field">
+        <label class="rng-checkbox-row"><input type="checkbox" id="rng-unique"> No duplicate numbers</label>
+      </div>
+
+      <div id="rng-error" class="rng-error" role="alert"></div>
+
+      <div class="tool-toolbar">
+        <button class="btn btn-primary" id="rng-generate" type="button">Generate</button>
+      </div>
+
+      <div class="rng-results" id="rng-results">
+        <div class="field">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:7px;">
+            <label for="rng-output" style="margin-bottom:0;">Result</label>
+            <span>
+              <button class="btn btn-secondary btn-sm" data-copy-target="#rng-output" type="button">Copy</button>
+              <span class="copy-feedback">Copied!</span>
+            </span>
+          </div>
+          <div class="output-box" id="rng-output"></div>
+        </div>
+        <div class="rng-pills" id="rng-pills"></div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-inline">
+      <div class="ad-label">Advertisement</div>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3056427584192481" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="tool-info">
+      <h2>How to use the random number generator</h2>
+      <ol>
+        <li>Set a minimum and maximum value for the range you want numbers drawn from.</li>
+        <li>Choose how many numbers to generate at once, from 1 to 100.</li>
+        <li>Check "No duplicate numbers" if you need each result to be unique — handy for raffle draws or lottery-style picks.</li>
+        <li>Click "Generate" — results appear as a list you can copy in one click.</li>
+      </ol>
+      <h2>Why use a random number generator?</h2>
+      <p>This tool is useful for picking raffle winners, shuffling a list, rolling dice, drawing lottery-style numbers, sampling data, or breaking ties fairly. Instead of relying on the ordinary <code>Math.random</code> function, it uses the browser's Web Crypto API with rejection sampling, so every number in your chosen range has an exactly equal chance of being picked — no subtle bias toward smaller or larger values near the edges of the range. The no-duplicates option is implemented so it validates your range up front: if you ask for more unique numbers than the range can actually supply, you get a clear error instead of a silently wrong result.</p>
+      <div class="faq">
+        <details><summary>Is this random number generator truly random?</summary><p>Numbers are generated with the Web Crypto API's crypto.getRandomValues, a cryptographically secure random source built into your browser, using rejection sampling so every value in your range is equally likely — unlike naive uses of Math.random, which can be slightly biased.</p></details>
+        <details><summary>Can I generate numbers without duplicates?</summary><p>Yes. Check "No duplicate numbers" and each generated value will be unique. If your requested count is larger than the number of possible values in your range, the tool shows an error instead of guessing.</p></details>
+        <details><summary>What's the maximum range or count supported?</summary><p>You can generate between 1 and 100 numbers per click, and the minimum and maximum can be any whole numbers, as long as minimum is less than or equal to maximum.</p></details>
+      </div>
+    </section>
+
+    <section class="related-tools">
+      <h2>Related tools</h2>
+      <div class="tools-grid">
+        <a class="tool-card" href="/tools/password-generator.html"><span class="emoji">🔐</span><h3>Password Generator</h3><p>Create strong, random passwords instantly.</p></a>
+        <a class="tool-card" href="/tools/color-converter.html"><span class="emoji">🎨</span><h3>Color Converter</h3><p>Convert between HEX, RGB, and HSL colors.</p></a>
+        <a class="tool-card" href="/tools/qr-code-generator.html"><span class="emoji">🔳</span><h3>QR Code Generator</h3><p>Turn text or links into a scannable QR code.</p></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="mark">A</span> AlienWeb</a>
+        <p>A free toolbox of fast, private, browser-based utilities for text, developers, and everyday calculations.</p>
+      </div>
+      <div class="footer-col"><h4>Text Tools</h4><ul>
+        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+        <li><a href="/tools/text-diff-checker.html">Text Diff Checker</a></li>
+        <li><a href="/tools/markdown-previewer.html">Markdown Previewer</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Developer Tools</h4><ul>
+        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+        <li><a href="/tools/base64-converter.html">Base64 Converter</a></li>
+        <li><a href="/tools/password-generator.html">Password Generator</a></li>
+        <li><a href="/tools/qr-code-generator.html">QR Code Generator</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Calculators</h4><ul>
+        <li><a href="/tools/bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="/tools/age-calculator.html">Age Calculator</a></li>
+        <li><a href="/tools/loan-emi-calculator.html">Loan EMI Calculator</a></li>
+        <li><a href="/tools/unit-converter.html">Unit Converter</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms of Use</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> AlienWeb.in — All rights reserved.</span>
+      <span>Built for people who just need the tool to work.</span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/assets/js/main.js"></script>
+<script>
+(function(){
+  var minInput = document.getElementById("rng-min");
+  var maxInput = document.getElementById("rng-max");
+  var countInput = document.getElementById("rng-count");
+  var uniqueBox = document.getElementById("rng-unique");
+  var generateBtn = document.getElementById("rng-generate");
+  var errorEl = document.getElementById("rng-error");
+  var resultsWrap = document.getElementById("rng-results");
+  var outputBox = document.getElementById("rng-output");
+  var pillsWrap = document.getElementById("rng-pills");
+
+  function showError(msg){
+    errorEl.textContent = msg;
+    errorEl.classList.add("show");
+    resultsWrap.classList.remove("show");
+  }
+
+  function hideError(){
+    errorEl.classList.remove("show");
+  }
+
+  // Unbiased random integer in [min, max] using crypto.getRandomValues and rejection sampling.
+  function secureRandomInt(min, max){
+    var range = max - min + 1;
+    if (range <= 1) return min;
+    var bitsNeeded = Math.ceil(Math.log2(range));
+    var bytesNeeded = Math.max(1, Math.ceil(bitsNeeded / 8));
+    var maxRange = Math.pow(256, bytesNeeded);
+    var limit = maxRange - (maxRange % range);
+    var buf = new Uint8Array(bytesNeeded);
+    var num;
+    do {
+      crypto.getRandomValues(buf);
+      num = 0;
+      for (var i = 0; i < bytesNeeded; i++) {
+        num = num * 256 + buf[i];
+      }
+    } while (num >= limit);
+    return min + (num % range);
+  }
+
+  function generate(){
+    hideError();
+    var min = parseInt(minInput.value, 10);
+    var max = parseInt(maxInput.value, 10);
+    var count = parseInt(countInput.value, 10);
+
+    if (isNaN(min) || isNaN(max) || isNaN(count)) {
+      showError("Please enter valid whole numbers for minimum, maximum, and count.");
+      return;
+    }
+    if (min > max) {
+      showError("Minimum must be less than or equal to maximum.");
+      return;
+    }
+    if (count < 1 || count > 100) {
+      showError("Count must be between 1 and 100.");
+      return;
+    }
+
+    var unique = uniqueBox.checked;
+    var rangeSize = max - min + 1;
+
+    if (unique && count > rangeSize) {
+      showError("Cannot generate " + count + " unique numbers from a range of only " + rangeSize + " possible value" + (rangeSize === 1 ? "" : "s") + ". Widen the range or lower the count.");
+      return;
+    }
+
+    var results = [];
+    if (unique) {
+      var seen = {};
+      var attempts = 0;
+      var maxAttempts = (count * 1000) + 1000;
+      while (results.length < count && attempts < maxAttempts) {
+        var n = secureRandomInt(min, max);
+        if (!seen[n]) {
+          seen[n] = true;
+          results.push(n);
+        }
+        attempts++;
+      }
+      if (results.length < count) {
+        showError("Could not generate enough unique numbers — try a wider range.");
+        return;
+      }
+    } else {
+      for (var i = 0; i < count; i++) {
+        results.push(secureRandomInt(min, max));
+      }
+    }
+
+    outputBox.textContent = results.join(", ");
+    pillsWrap.innerHTML = results.map(function(n){
+      return '<div class="stat-pill"><div class="num">' + n + "</div></div>";
+    }).join("");
+    resultsWrap.classList.add("show");
+  }
+
+  generateBtn.addEventListener("click", generate);
+  generate();
+})();
+</script>
+</body>
+</html>
