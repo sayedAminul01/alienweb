@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Age Calculator — Free Online Tool | AlienWeb</title>
+<meta name="description" content="Free online age calculator. Enter your date of birth to instantly see your exact age in years, months, and days, plus total days lived and days until your next birthday.">
+<link rel="canonical" href="https://alienweb.in/tools/age-calculator.html">
+<meta name="theme-color" content="#1F8181">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Age Calculator — AlienWeb">
+<meta property="og:description" content="Calculate exact age in years, months, and days, plus total days lived and time to your next birthday. Free and private.">
+<meta property="og:url" content="https://alienweb.in/tools/age-calculator.html">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Age Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://alienweb.in/tools/age-calculator.html"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How is my exact age calculated?","acceptedAnswer":{"@type":"Answer","text":"The calculator counts full years, then full months, then remaining days between your date of birth and the chosen date, correctly handling different month lengths and leap years rather than simply dividing total days by 365."}},
+{"@type":"Question","name":"Why do I need to enter an \"as of\" date?","acceptedAnswer":{"@type":"Answer","text":"By default it's set to today, so you get your current age. Changing it lets you calculate age as of any other date — useful for eligibility rules, legal documents, or figuring out how old someone was on a specific day."}},
+{"@type":"Question","name":"Does this handle leap years correctly?","acceptedAnswer":{"@type":"Answer","text":"Yes. The calculation is fully calendar-aware, so leap years, February's shorter length, and months of different lengths are all accounted for automatically."}}
+]}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3056427584192481" crossorigin="anonymous"></script>
+<style>
+  .age-error{ display:none; margin-top:14px; padding:10px 14px; border-radius:var(--radius-sm); background:var(--bg-sunken); border:1px solid var(--danger); color:var(--danger); font-size:.85rem; }
+  .age-error.show{ display:block; }
+  .age-results{ display:none; }
+  .age-results.show{ display:block; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="/" class="logo"><span class="mark">A</span> AlienWeb</a>
+    <nav class="main-nav" data-main-nav>
+      <a href="/#text-tools">Text Tools</a>
+      <a href="/#developer-tools">Developer Tools</a>
+      <a href="/#calculators">Calculators</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <form class="header-search" data-header-search data-home="/" role="search">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="search" name="q" placeholder="Search 20+ free tools…" aria-label="Search tools">
+    </form>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="icon-btn menu-toggle" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <p class="breadcrumbs"><a href="/">Home</a> / <a href="/#calculators">Calculators</a> / Age Calculator</p>
+    <div class="tool-header">
+      <span class="cat-tag">Calculator</span>
+      <h1>Age Calculator</h1>
+      <p class="lede">Enter a date of birth to see your exact age in years, months, and days — plus total days lived and time until your next birthday.</p>
+    </div>
+
+    <div class="tool-panel">
+      <div class="tool-grid-2">
+        <div class="field">
+          <label for="age-dob">Date of birth</label>
+          <input type="date" id="age-dob">
+        </div>
+        <div class="field">
+          <label for="age-asof">Calculate age as of</label>
+          <input type="date" id="age-asof">
+        </div>
+      </div>
+
+      <div id="age-error" class="age-error" role="alert"></div>
+
+      <div class="tool-toolbar">
+        <button class="btn btn-primary" id="age-calculate" type="button">Calculate</button>
+      </div>
+
+      <div class="age-results" id="age-results">
+        <div class="result-display">
+          <div class="big" id="age-big">0 years</div>
+          <div class="label" id="age-detail"></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-pill"><div class="num" id="age-total-days">0</div><div class="lbl">Total days lived</div></div>
+          <div class="stat-pill"><div class="num" id="age-total-weeks">0</div><div class="lbl">Total weeks lived</div></div>
+          <div class="stat-pill"><div class="num" id="age-next-birthday">0</div><div class="lbl">Days to next birthday</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-inline">
+      <div class="ad-label">Advertisement</div>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3056427584192481" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <section class="tool-info">
+      <h2>How to use the age calculator</h2>
+      <ol>
+        <li>Enter the date of birth you want to calculate age for.</li>
+        <li>"Calculate age as of" defaults to today's date — change it if you need age as of a different date.</li>
+        <li>Click "Calculate" to see the exact age, plus total days and weeks lived, and days remaining until the next birthday.</li>
+      </ol>
+      <h2>Why use an age calculator?</h2>
+      <p>Figuring out someone's exact age in years, months, and days by hand is fiddly, because months have different lengths and leap years throw off any simple "divide by 365" shortcut. This tool does the calendar math properly: it counts complete years, then complete months, then the remaining days, so the result is always accurate no matter which dates you pick. It's useful for filling out forms that ask for precise age, checking age-based eligibility rules as of a specific date, planning a birthday countdown, or just satisfying curiosity about how many days you've been alive. All calculations happen instantly in your browser and are for general informational purposes rather than legal or medical documentation.</p>
+      <div class="faq">
+        <details><summary>How is my exact age calculated?</summary><p>The calculator counts full years, then full months, then remaining days between your date of birth and the chosen date, correctly handling different month lengths and leap years rather than simply dividing total days by 365.</p></details>
+        <details><summary>Why do I need to enter an "as of" date?</summary><p>By default it's set to today, so you get your current age. Changing it lets you calculate age as of any other date — useful for eligibility rules, legal documents, or figuring out how old someone was on a specific day.</p></details>
+        <details><summary>Does this handle leap years correctly?</summary><p>Yes. The calculation is fully calendar-aware, so leap years, February's shorter length, and months of different lengths are all accounted for automatically.</p></details>
+      </div>
+    </section>
+
+    <section class="related-tools">
+      <h2>Related tools</h2>
+      <div class="tools-grid">
+        <a class="tool-card" href="/tools/bmi-calculator.html"><span class="emoji">⚖️</span><h3>BMI Calculator</h3><p>Calculate your Body Mass Index and category.</p></a>
+        <a class="tool-card" href="/tools/timestamp-converter.html"><span class="emoji">🕒</span><h3>Timestamp Converter</h3><p>Convert Unix timestamps to and from dates.</p></a>
+        <a class="tool-card" href="/tools/percentage-calculator.html"><span class="emoji">➗</span><h3>Percentage Calculator</h3><p>Find percentages, ratios, and percentage change.</p></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo"><span class="mark">A</span> AlienWeb</a>
+        <p>A free toolbox of fast, private, browser-based utilities for text, developers, and everyday calculations.</p>
+      </div>
+      <div class="footer-col"><h4>Text Tools</h4><ul>
+        <li><a href="/tools/word-counter.html">Word Counter</a></li>
+        <li><a href="/tools/case-converter.html">Case Converter</a></li>
+        <li><a href="/tools/text-diff-checker.html">Text Diff Checker</a></li>
+        <li><a href="/tools/markdown-previewer.html">Markdown Previewer</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Developer Tools</h4><ul>
+        <li><a href="/tools/json-formatter.html">JSON Formatter</a></li>
+        <li><a href="/tools/base64-converter.html">Base64 Converter</a></li>
+        <li><a href="/tools/password-generator.html">Password Generator</a></li>
+        <li><a href="/tools/qr-code-generator.html">QR Code Generator</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Calculators</h4><ul>
+        <li><a href="/tools/bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="/tools/age-calculator.html">Age Calculator</a></li>
+        <li><a href="/tools/loan-emi-calculator.html">Loan EMI Calculator</a></li>
+        <li><a href="/tools/unit-converter.html">Unit Converter</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms of Use</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> AlienWeb.in — All rights reserved.</span>
+      <span>Built for people who just need the tool to work.</span>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<script src="/assets/js/main.js"></script>
+<script>
+(function(){
+  var dobInput = document.getElementById("age-dob");
+  var asOfInput = document.getElementById("age-asof");
+  var calculateBtn = document.getElementById("age-calculate");
+  var errorEl = document.getElementById("age-error");
+  var resultsWrap = document.getElementById("age-results");
+  var bigEl = document.getElementById("age-big");
+  var detailEl = document.getElementById("age-detail");
+  var totalDaysEl = document.getElementById("age-total-days");
+  var totalWeeksEl = document.getElementById("age-total-weeks");
+  var nextBirthdayEl = document.getElementById("age-next-birthday");
+
+  var MS_PER_DAY = 86400000;
+
+  function pad2(n){ return n < 10 ? "0" + n : "" + n; }
+
+  function todayStr(){
+    var d = new Date();
+    return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate());
+  }
+
+  function parseDateInput(str){
+    var parts = str.split("-");
+    return new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10));
+  }
+
+  // Adds n calendar months to a date, clamping the day to the target month's length
+  // (e.g. Jan 31 + 1 month -> Feb 28/29, never rolling into March).
+  function addMonthsClamped(date, n){
+    var day = date.getDate();
+    var d = new Date(date.getFullYear(), date.getMonth(), 1);
+    d.setMonth(d.getMonth() + n);
+    var daysInTarget = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
+    d.setDate(Math.min(day, daysInTarget));
+    return d;
+  }
+
+  // Calendar-aware difference: full years, full months, remaining days.
+  function calcAge(dob, asOf){
+    var totalMonths = (asOf.getFullYear() - dob.getFullYear()) * 12 + (asOf.getMonth() - dob.getMonth());
+    var tentative = addMonthsClamped(dob, totalMonths);
+    if (tentative > asOf) {
+      totalMonths--;
+      tentative = addMonthsClamped(dob, totalMonths);
+    }
+    var years = Math.floor(totalMonths / 12);
+    var months = totalMonths % 12;
+    var days = Math.round((asOf - tentative) / MS_PER_DAY);
+    return { years: years, months: months, days: days };
+  }
+
+  function daysUntilNextBirthday(dob, asOf){
+    var next = new Date(asOf.getFullYear(), dob.getMonth(), dob.getDate());
+    if (next < asOf) {
+      next = new Date(asOf.getFullYear() + 1, dob.getMonth(), dob.getDate());
+    }
+    return Math.round((next - asOf) / MS_PER_DAY);
+  }
+
+  function showError(msg){
+    errorEl.textContent = msg;
+    errorEl.classList.add("show");
+    resultsWrap.classList.remove("show");
+  }
+
+  function hideError(){
+    errorEl.classList.remove("show");
+  }
+
+  function pluralize(n, word){ return n + " " + word + (n === 1 ? "" : "s"); }
+
+  function calculate(){
+    hideError();
+    var dobStr = dobInput.value;
+    var asOfStr = asOfInput.value;
+
+    if (!dobStr || !asOfStr) {
+      showError("Please enter both a date of birth and an \"as of\" date.");
+      return;
+    }
+
+    var dob = parseDateInput(dobStr);
+    var asOf = parseDateInput(asOfStr);
+
+    if (asOf < dob) {
+      showError("The \"as of\" date must be on or after the date of birth.");
+      return;
+    }
+
+    var age = calcAge(dob, asOf);
+    var totalDays = Math.round((asOf - dob) / MS_PER_DAY);
+    var totalWeeks = Math.floor(totalDays / 7);
+    var untilNext = daysUntilNextBirthday(dob, asOf);
+
+    bigEl.textContent = pluralize(age.years, "year");
+    detailEl.textContent = pluralize(age.years, "year") + ", " + pluralize(age.months, "month") + ", and " + pluralize(age.days, "day") + " old";
+    totalDaysEl.textContent = totalDays.toLocaleString();
+    totalWeeksEl.textContent = totalWeeks.toLocaleString();
+    nextBirthdayEl.textContent = untilNext === 0 ? "Today!" : untilNext.toLocaleString();
+
+    resultsWrap.classList.add("show");
+  }
+
+  asOfInput.value = todayStr();
+  calculateBtn.addEventListener("click", calculate);
+
+  dobInput.value = "1995-06-15";
+  calculate();
+})();
+</script>
+</body>
+</html>
