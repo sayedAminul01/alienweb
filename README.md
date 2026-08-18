@@ -95,9 +95,10 @@ a fresh review. Once the domain is live on GitHub Pages with valid HTTPS:
 3. AdSense typically wants **real, substantial content and working navigation**
    before approval — this site already has 20 functional tools, About, Contact,
    Privacy Policy, and Terms pages, which covers their usual checklist.
-4. After approval, create **ad units** in the AdSense dashboard and replace the
-   placeholder `data-ad-slot="0000000000"` values across `index.html` and every
-   file in `tools/` with your real slot IDs.
+4. Real ad units are already wired in: 3 slots per page (a display ad, an
+   in-article native ad, and a matched-content/related ad at the bottom). If
+   you create additional or replacement units in the AdSense dashboard, update
+   the `data-ad-slot` values across `index.html` and the files in `tools/`.
 5. Review is often slower for finance-adjacent calculators (loan EMI, discount) —
    don't be surprised if it takes longer than a typical content site.
 
