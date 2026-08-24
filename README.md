@@ -118,7 +118,7 @@ meta boilerplate other tool pages follow. Then:
 - `ads.txt` uses Google's standard certification authority ID
   `f08c47fec0942fa0` alongside your publisher ID — this is the same for every
   AdSense publisher and does not need to change.
-- The contact email on `contact.html` is a placeholder
-  (`contact@alienweb.in`) forwarding-note to `sayedaminul0@gmail.com`. Update it
-  once you have a real mailbox on the domain, or just point the `mailto:` link
-  straight at whatever inbox you want to use.
+- The contact email across the site is `hellowsupprt@gmail.com`. If you later set
+  up a mailbox on the domain, replace it everywhere at once — it appears in
+  `contact.html`, `blog/*.html` (both the visible text and the
+  `ProfessionalService` JSON-LD `email` field), and in the agency repo.
