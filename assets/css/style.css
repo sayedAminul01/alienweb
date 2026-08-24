@@ -92,6 +92,10 @@ body{
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   transition:background-color .2s ease, color .2s ease;
+  /* The closed mobile nav sits off-screen at translateX(100%) and would otherwise
+     add horizontal scroll. `clip` (not `hidden`) avoids creating a scroll
+     container, so the sticky header keeps working. */
+  overflow-x:clip;
 }
 img,svg{ display:block; max-width:100%; }
 a{ color:var(--link); text-decoration:none; }
@@ -119,7 +123,7 @@ code,pre{ font-family:var(--font-mono); }
 .logo{ display:flex; align-items:center; gap:9px; font-weight:700; font-size:1.15rem; color:var(--text); flex-shrink:0; }
 .logo:hover{ text-decoration:none; }
 .logo .mark{ width:30px; height:30px; border-radius:9px; background:var(--accent); display:flex; align-items:center; justify-content:center; color:var(--accent-contrast); font-family:var(--font-serif); font-weight:700; }
-.main-nav{ display:flex; align-items:center; gap:22px; margin-left:6px; }
+.main-nav{ display:flex; align-items:center; gap:18px; margin-left:6px; }
 .main-nav a{ color:var(--text-muted); font-size:.94rem; font-weight:500; white-space:nowrap; }
 .main-nav a:hover{ color:var(--text); text-decoration:none; }
 .header-search{ flex:1; max-width:420px; margin-left:auto; position:relative; }
@@ -281,14 +285,73 @@ input:focus,select:focus,textarea:focus{ border-color:var(--accent); box-shadow:
 .page-hero{ padding:50px 0 10px; text-align:center; }
 .page-hero .lede{ max-width:600px; margin:0 auto; }
 
+/* ---------- Blog ---------- */
+.post-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:20px; padding:34px 0 20px; }
+.post-card{
+  background:var(--bg-raised); border:1px solid var(--border); border-radius:var(--radius-md);
+  padding:24px; display:flex; flex-direction:column; gap:10px; transition:.15s ease;
+}
+.post-card:hover{ border-color:var(--accent); box-shadow:var(--shadow-sm); transform:translateY(-2px); text-decoration:none; }
+.post-card h2{ font-size:1.2rem; margin:0; color:var(--text); }
+.post-card p{ margin:0; font-size:.9rem; flex:1; }
+.post-meta{ font-size:.75rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--text-faint); display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+.post-meta .cat{ color:var(--accent); }
+.post-card .read-more{ font-size:.88rem; font-weight:600; color:var(--accent); }
+
+.article{ max-width:760px; margin:0 auto; padding:34px 0 60px; }
+.article-head{ padding-bottom:8px; }
+.article-head h1{ margin:12px 0 14px; }
+.article-head .lede{ font-size:1.06rem; color:var(--text-muted); margin:0; }
+.article-body{ padding-top:8px; }
+.article-body h2{ margin-top:1.8em; }
+.article-body h3{ margin-top:1.5em; font-family:var(--font-sans); font-size:1.02rem; }
+.article-body ul,.article-body ol{ color:var(--text-muted); padding-left:1.3em; }
+.article-body li{ margin-bottom:.5em; }
+.article-body blockquote{
+  margin:1.6em 0; padding:14px 20px; border-left:3px solid var(--accent);
+  background:var(--bg-sunken); border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+}
+.article-body blockquote p{ margin:0; }
+
+.work-list{ list-style:none; padding:0; margin:20px 0; display:grid; gap:12px; }
+.work-list li{
+  background:var(--bg-raised); border:1px solid var(--border); border-radius:var(--radius-sm);
+  padding:16px 18px;
+}
+.work-list .work-name{ font-weight:600; color:var(--text); display:block; margin-bottom:3px; }
+.work-list .work-what{ font-size:.88rem; color:var(--text-muted); display:block; margin-bottom:7px; }
+.work-list a.work-url{ font-family:var(--font-mono); font-size:.82rem; word-break:break-all; }
+
+.local-card{
+  background:var(--accent-soft); border:1px solid var(--border); border-radius:var(--radius-md);
+  padding:22px 24px; margin:26px 0;
+}
+.local-card h3{ margin:0 0 10px; font-family:var(--font-sans); font-size:1rem; }
+.local-card p{ margin:0 0 6px; font-size:.92rem; }
+.local-card a{ font-weight:600; }
+
 /* ---------- Responsive ---------- */
+/* The nav carries 7 links; below this width the header search is the first thing
+   to give up its space, since the homepage hero already has a bigger one. */
+@media (max-width:1120px){
+  .header-search{ display:none; }
+}
 @media (max-width:900px){
   .footer-grid{ grid-template-columns:1fr 1fr; }
   .tool-grid-2{ grid-template-columns:1fr; }
+  .post-grid{ grid-template-columns:1fr; }
 }
 @media (max-width:760px){
-  .main-nav{ position:fixed; inset:var(--header-h) 0 0 0; background:var(--bg); flex-direction:column; align-items:stretch; padding:20px; gap:4px; transform:translateX(100%); transition:transform .2s ease; overflow-y:auto; }
-  .main-nav.open{ transform:translateX(0); }
+  /* Closed state fades out in place rather than sliding off to the right — a
+     horizontal translate on a fixed element pushes past the viewport and adds
+     horizontal scroll that body overflow can't clip. */
+  .main-nav{
+    position:fixed; inset:var(--header-h) 0 0 0; background:var(--bg);
+    flex-direction:column; align-items:stretch; padding:20px; gap:4px; overflow-y:auto;
+    opacity:0; visibility:hidden; pointer-events:none; transform:translateY(-6px);
+    transition:opacity .2s ease, transform .2s ease, visibility .2s;
+  }
+  .main-nav.open{ opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0); }
   .main-nav a{ padding:12px 6px; border-bottom:1px solid var(--border); font-size:1rem; }
   .header-search{ display:none; }
   .menu-toggle{ display:flex; }
