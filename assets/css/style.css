@@ -468,9 +468,9 @@ input:focus,select:focus,textarea:focus{ border-color:var(--accent); box-shadow:
 .related-posts .card-text{ padding:16px 18px 18px; gap:8px; }
 
 /* ---------- Responsive ---------- */
-/* The nav carries 7 links; below this width the header search is the first thing
+/* The nav carries 8 links; below this width the header search is the first thing
    to give up its space, since the homepage hero already has a bigger one. */
-@media (max-width:1120px){
+@media (max-width:1240px){
   .header-search{ display:none; }
 }
 @media (max-width:900px){
