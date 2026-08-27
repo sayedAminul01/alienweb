@@ -214,6 +214,9 @@
   <url><loc>https://adca.alienweb.in/test/adca-online-test-100-questions.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://adca.alienweb.in/test/adca-online-test-50-questions.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://adca.alienweb.in/test/adca-online-test-30-questions.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://adca.alienweb.in/test/pgdca-online-test-100-questions.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://adca.alienweb.in/test/pgdca-online-test-50-questions.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://adca.alienweb.in/test/pgdca-online-test-30-questions.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://adca.alienweb.in/topic/tally-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://adca.alienweb.in/topic/adca-course-test-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://adca.alienweb.in/topic/dbms-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
@@ -230,5 +233,21 @@
   <url><loc>https://adca.alienweb.in/topic/photoshop-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://adca.alienweb.in/topic/input-and-output-devices-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://adca.alienweb.in/topic/computer-components-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/topic/c-programming-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/topic/web-technology-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/topic/sql-and-rdbms-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/topic/data-structures-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/topic/computer-networks-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/topic/cpp-and-oop-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/topic/python-programming-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/topic/operating-systems-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/topic/computer-organisation-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/topic/cyber-security-and-it-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/topic/software-engineering-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/topic/multimedia-and-digital-design-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/topic/system-analysis-and-design-mcq-test.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://adca.alienweb.in/adca/</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://adca.alienweb.in/pgdca/</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://adca.alienweb.in/</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://adca.alienweb.in/certificate.html</loc><lastmod>2026-08-27</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
